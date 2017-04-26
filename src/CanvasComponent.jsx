@@ -9,8 +9,8 @@ const values = (object) => {
 function polygon(props) {
   const {ctx, points} = props
 
-  props.points.forEach((point, index) => {
-    cords = values(point)
+  points.forEach((point, index) => {
+    const cords = values(point)
     index <= 0
       ? ctx.moveTo(...cords)
       : ctx.lineTo(...cords)
@@ -35,11 +35,13 @@ class CanvasComponent extends React.Component {
   }
 
   componentDidMount() {
-    this.updateCanvas()
+    this.resetCanvas()
   }
 
-  updateCanvas() {
+  resetCanvas() {
     const ctx = this.refs.canvas.getContext('2d')
+    ctx.clearRect(0,0,this.props.width, this.props.height)
+    ctx.fillStyle = 'red'
   }
 
   handleOnClick() {
