@@ -45,12 +45,7 @@ class CanvasComponent extends React.Component {
 
         const points = this.state.points.slice()
 
-        const createPoint = props => {
-            const point = {x:props.x, y:props.y}
-            return point
-        }
-
-        const point = createPoint({x:this.state.mouseX, y:this.state.mouseY})
+        const point = {x:this.state.mouseX, y:this.state.mouseY}
 
         points.push(point)
 
